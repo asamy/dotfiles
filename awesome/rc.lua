@@ -8,6 +8,8 @@ require("beautiful")
 require("naughty")
 -- Widget library
 require("vicious")
+-- Lua file system
+require('lfs')
 
 -- Themes define colours, icons, and wallpapers
 beautiful.init("/home/bart/.config/awesome/themes/mine/theme.lua")
@@ -96,8 +98,10 @@ hdicon = widget({type ="imagebox"})
 hdicon.image = image("/home/bart/.config/awesome/icons/usb.png")
 fswidget1 = widget({type = "textbox" })
 vicious.register(fswidget1, vicious.widgets.fs, "Root ${/ avail_gb}GB", 30)
-fswidget2 = widget({type = "textbox" })
-vicious.register(fswidget2, vicious.widgets.fs, "Backup ${/backup avail_gb}GB", 30)
+if lfs.attributes('/backup') then
+    fswidget2 = widget({type = "textbox" })
+    vicious.register(fswidget2, vicious.widgets.fs, "Backup ${/backup avail_gb}GB", 30)
+end
 
 -- CPU widget
 cpuicon = widget({type ="imagebox"})
