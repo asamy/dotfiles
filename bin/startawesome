@@ -1,0 +1,4 @@
+#!/bin/bash
+setxkbmap -model abnt2 br
+gnome-settings-daemon &
+awesome
