@@ -3,7 +3,7 @@
 ---------------------------
 
 theme = {}
-theme.wallpaper_cmd = {"awsetbg /home/bart/images/archbw.png"}
+theme.wallpaper_cmd = {"feh --bg-fill /home/bart/.config/awesome/themes/mine/wallpaper.jpeg"}
 
 theme.font          = "snap 8"
 
