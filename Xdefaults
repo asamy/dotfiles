@@ -8,7 +8,7 @@ URxvt*cursorColor:     white
 URxvt*cursorBlink:     true
 URxvt*title:           rxvt-256color
 URxvt*shading:         40
-URxvt*transparent:     true
+!URxvt*transparent:     true
 URxvt*pastableTabs:    true
 URxvt*jumpScroll:      true
 URxvt*secondaryScroll: true

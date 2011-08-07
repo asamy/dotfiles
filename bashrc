@@ -168,15 +168,14 @@ fi
 
 alias disablescreensaver="xset -dpms; xset s off"
 alias bashrc="vim ~/.bashrc; source ~/.bashrc; clear"
-alias cdcoding="cd ~/coding"
 
-#source $HOME/poke/homescripts/bashrc
 alias startdebian="(qemu-kvm -enable-kvm -m 2048 -net nic,model=e1000 -net vde -kernel /home/bart/coding/linux-2.6.39/arch/x86_64/boot/bzImage -nographic -smp 8 -daemonize /backup/VBox/debian.img &)"
 alias stopdebian="ssh root@192.168.100.2 poweroff"
 alias restartdebian="stopdebian && startdebian"
 alias sshdebian="ssh root@192.168.100.2"
 alias debian="restartdebian && sleep 2 && sshdebian"
 alias rclua="vim ~/.config/awesome/rc.lua"
+alias vimrc="vim ~/.vimrc"
 
 ufscvpn()
 {
