@@ -49,7 +49,7 @@ end
 
 -- Wibox
 separator = widget({ type = "textbox" })
-separator.text = " | "
+separator.text = " "
 spacer = widget({ type = "textbox" })
 spacer.text = " "
 
@@ -132,7 +132,7 @@ mytaglist.buttons = awful.util.table.join(
 
 for s = 1, screen.count() do
     -- Create a promptbox for each screen
-    mypromptbox[s] = awful.widget.prompt({ layout = awful.widget.layout.horizontal.leftright, prompt = "| Run: " })
+    mypromptbox[s] = awful.widget.prompt({ layout = awful.widget.layout.horizontal.leftright, prompt = " >>> " })
     -- Create an imagebox widget which will contains an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
     mylayoutbox[s] = awful.widget.layoutbox(s)
