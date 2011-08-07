@@ -99,6 +99,8 @@ hdicon.image = image("/home/bart/.config/awesome/icons/usb.png")
 fswidget1 = widget({type = "textbox" })
 vicious.register(fswidget1, vicious.widgets.fs, "Root ${/ avail_gb}GB", 30)
 if lfs.attributes('/backup') then
+    hdicon2 = hdicon
+    hdseparator2 = separator
     fswidget2 = widget({type = "textbox" })
     vicious.register(fswidget2, vicious.widgets.fs, "Backup ${/backup avail_gb}GB", 30)
 end
@@ -163,7 +165,7 @@ for s = 1, screen.count() do
         updateswidget, updatesicon, separator,
         memwidget, memicon, separator,
         cpuinfwidget, cpuwidget, cpuicon, separator,
-        fswidget2, hdicon, separator, fswidget1, hdicon, separator,
+        fswidget2, hdicon2, hdseparator2, fswidget1, hdicon, separator,
         mailwidget, mailicon, separator,
         uptimewidget, uptimeicon, separator,
         netupwidget, netupicon, netdownwidget, netdownicon, netwidget, neticon,
