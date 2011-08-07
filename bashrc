@@ -185,4 +185,15 @@ ufscvpn()
   sudo ip route add default dev ppp0
 }
 
+#laptop toops
+alias battery="acpi -i"
+alias suspend="sudo pm-suspend"
+toggletouchpad() {
+    if [ `synclient -l | grep TouchpadOff | sed 's/.*= //'` == 0]; then
+        synclient TouchpadOff=1
+    else
+        synclient TouchpadOff=0
+    fi
+}
+
 

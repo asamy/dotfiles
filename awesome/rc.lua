@@ -39,8 +39,8 @@ layouts =
 }
 
 -- Tags
-tags_names = { "1-term", "2-fs", "3-dev", "4-web", "5-chat", "6-media" }
-tags_layouts = { layouts[2], layouts[6], layouts[2], layouts[1], layouts[1], layouts[1] }
+tags_names = { "term", "dev", "web", "chat", "media", "fs", "etc" }
+tags_layouts = { layouts[2], layouts[2], layouts[1], layouts[1], layouts[1], layouts[6], layouts[1] }
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
@@ -309,6 +309,7 @@ awful.rules.rules = {
                      border_color = beautiful.border_normal,
                      focus = true,
                      keys = clientkeys,
+                     size_hints_hornor = false,
                      buttons = clientbuttons } },
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
