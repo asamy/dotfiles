@@ -319,6 +319,8 @@ awful.rules.rules = {
                      buttons = clientbuttons } },
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
+    { rule = { name = "OTClient" },
+      properties = { floating = true } },
     { rule = { class = "pinentry" },
       properties = { floating = true } },
     { rule = { class = "gimp" },
