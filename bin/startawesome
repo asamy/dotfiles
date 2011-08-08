@@ -1,4 +1,5 @@
 #!/bin/bash
 setxkbmap -model abnt2 br
+xset b off
 gnome-settings-daemon &
 awesome
