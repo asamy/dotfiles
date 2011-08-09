@@ -204,13 +204,15 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
     awful.key({ modkey,           }, "Tab", function ()
-                                              awful.client.focus.byidx( 1)
-                                              client.focus:raise()
+                                                awful.client.focus.history.previous()
+                                                if client.focus then
+                                                    client.focus:raise()
+                                                end
                                             end),
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey,           }, "w", function () awful.util.spawn("google-chrome") end),
+    --awful.key({ modkey,           }, "w", function () awful.util.spawn("google-chrome") end),
     awful.key({ modkey,           }, "p", function () awful.util.spawn("pcmanfm") end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
