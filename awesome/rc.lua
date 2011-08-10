@@ -22,6 +22,7 @@ editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
 modkey = "Mod1"
+appkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
@@ -79,7 +80,7 @@ vicious.register(netupwidget, vicious.widgets.net, '${eth0 up_kb}KBs', 1)
 memicon = widget({type ="imagebox"})
 memicon.image = image("/home/bart/.config/awesome/icons/mem.png")
 memwidget = widget({ type = "textbox" })
-vicious.register(memwidget, vicious.widgets.mem, "Mem $1%", 10)
+vicious.register(memwidget, vicious.widgets.mem, "Mem $1%", 1)
 
 -- Mem widget
 updatesicon = widget({type ="imagebox"})
@@ -212,8 +213,9 @@ globalkeys = awful.util.table.join(
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-    --awful.key({ modkey,           }, "w", function () awful.util.spawn("google-chrome") end),
-    awful.key({ modkey,           }, "p", function () awful.util.spawn("pcmanfm") end),
+    awful.key({ appkey,           }, "w", function () awful.util.spawn("google-chrome") end),
+    awful.key({ appkey,           }, "f", function () awful.util.spawn("pcmanfm") end),
+    awful.key({ appkey,           }, "t", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
@@ -243,6 +245,7 @@ globalkeys = awful.util.table.join(
 clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
+    awful.key({ modkey,           }, "F4",     function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
