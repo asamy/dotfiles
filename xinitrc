@@ -1,5 +1,5 @@
 #export DE=gnome
-export BROWSER=google-chrome
+#export BROWSER=google-chrome
 #exec ck-launch-session dbus-launch openbox-session
 #exec ck-launch-session dbus-launch gnome-session
 #exec ck-launch-session dbus-launch startkde

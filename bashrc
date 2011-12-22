@@ -47,9 +47,17 @@ loadbrkey () {
     setxkbmap -model abnt2 br
 }
 
+imgur() {
+for i in "$@";do
+curl -# -F "image"=@"$i" -F "key"="4907fcd89e761c6b07eeb8292d5a9b2a" http://imgur.com/api/upload.xml|\
+    grep -Eo '<[a-z_]+>http[^<]+'|sed 's/^<.\|_./\U&/g;s/_/ /;s/<\(.*\)>/\x1B[0;32m\1:\x1B[0m /'
+    done
+}
+
 shot(){
-  local PIC="$HOME/images/screenshots/desktop_$(date +%y%m%d%H%M).png"
-  scrot -t 20 -cd 3 $PIC
+  local PIC="$HOME/artwork/screenshots/desktop_$(date +%y%m%d%H%M).png"
+  scrot -scd 3 $PIC
+  imgur $PIC
 }
 
 findinfiles() {
@@ -166,26 +174,9 @@ if [ "$TERM" = "xterm" ] ; then
     fi
 fi
 
-alias disablescreensaver="xset -dpms; xset s off"
 alias bashrc="vim ~/.bashrc; source ~/.bashrc; clear"
-
-alias startdebian="(qemu-kvm -enable-kvm -m 2048 -net nic,model=e1000 -net vde -kernel /home/bart/coding/linux-2.6.39/arch/x86_64/boot/bzImage -nographic -smp 8 -daemonize /backup/VBox/debian.img &)"
-alias stopdebian="ssh root@192.168.100.2 poweroff"
-alias restartdebian="stopdebian && startdebian"
-alias sshdebian="ssh root@192.168.100.2"
-alias debian="restartdebian && sleep 2 && sshdebian"
 alias rclua="vim ~/.config/awesome/rc.lua"
 alias vimrc="vim ~/.vimrc"
-
-ufscvpn()
-{
-  sudo pon vpnufsc
-  sleep 3
-  sudo ip route del default
-  sudo ip route add default dev ppp0
-}
-
-#laptop toops
 alias battery="acpi -i"
 alias suspend="sudo pm-suspend"
 toggletouchpad() {
@@ -195,5 +186,4 @@ toggletouchpad() {
         synclient TouchpadOff=0
     fi
 }
-
 

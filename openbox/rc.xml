@@ -32,6 +32,7 @@
     <!-- with Smart placement on a multi-monitor system, try to place new windows
        on: 'Any' - any monitor, 'Mouse' - where the mouse is, 'Active' - where
        the active window is -->
+    <primaryMonitor/>
   </placement>
   <theme>
     <name>Surreal</name>
@@ -84,14 +85,14 @@
       <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
-    <font place="OnScreenDisplay">
-      <name>snap</name>
-      <size>9</size>
-      <!-- font size in points -->
-      <weight>Bold</weight>
-      <!-- 'bold' or 'normal' -->
-      <slant>Normal</slant>
-      <!-- 'italic' or 'normal' -->
+    <font place="ActiveOnScreenDisplay">
+      <name/>
+    </font>
+    <font place="InactiveOnScreenDisplay">
+      <name>Sans</name>
+      <size>8</size>
+      <weight/>
+      <slant/>
     </font>
   </theme>
   <desktops>
@@ -103,13 +104,13 @@
 
        use obconf if you want to change these without having to log out
        and back in -->
-    <number>2</number>
+    <number>4</number>
     <firstdesk>1</firstdesk>
     <names>
       <name>Net</name>
       <name>Dev</name>
-      <name>Three</name>
-      <name>Four</name>
+      <name>Term</name>
+      <name>Media</name>
     </names>
     <popupTime>875</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
@@ -171,6 +172,9 @@
         <wrap>no</wrap>
       </action>
     </keybind>
+    <keybind key="S-A-c">
+      <action name="Close"/>
+    </keybind>
     <keybind key="C-A-Up">
       <action name="DesktopUp">
         <wrap>no</wrap>
@@ -201,20 +205,20 @@
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="W-F1">
+    <keybind key="A-1">
       <action name="Desktop"/>
     </keybind>
-    <keybind key="W-F2">
+    <keybind key="A-2">
       <action name="Desktop">
         <desktop>2</desktop>
       </action>
     </keybind>
-    <keybind key="W-F3">
+    <keybind key="A-3">
       <action name="Desktop">
         <desktop>3</desktop>
       </action>
     </keybind>
-    <keybind key="W-F4">
+    <keybind key="A-4">
       <action name="Desktop">
         <desktop>4</desktop>
       </action>

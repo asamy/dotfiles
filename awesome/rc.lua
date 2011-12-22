@@ -43,7 +43,7 @@ layouts =
 
 -- Tags
 tags_names = { "term", "dev", "web", "chat", "media", "fs", "etc" }
-tags_layouts = { layouts[2], layouts[2], layouts[1], layouts[1], layouts[1], layouts[6], layouts[1] }
+tags_layouts = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[6], layouts[1] }
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
@@ -115,10 +115,10 @@ cpuinfwidget = widget({ type = "textbox" })
 vicious.register(cpuinfwidget, vicious.widgets.cpuinf, " / ${cpu0 ghz}GHz", 60)
 
 -- Gmail widget
-mailicon = widget({type ="imagebox"})
-mailicon.image = image("/home/bart/.config/awesome/icons/mail.png")
-mailwidget = widget({ type = "textbox" })
-vicious.register(mailwidget, vicious.widgets.gmail, "Mail ${count}", 15*60)
+--mailicon = widget({type ="imagebox"})
+--mailicon.image = image("/home/bart/.config/awesome/icons/mail.png")
+--mailwidget = widget({ type = "textbox" })
+--vicious.register(mailwidget, vicious.widgets.gmail, "Mail ${count}", 15*60)
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -167,7 +167,7 @@ for s = 1, screen.count() do
         memwidget, memicon, separator,
         cpuinfwidget, cpuwidget, cpuicon, separator,
         fswidget2, hdicon2, hdseparator2, fswidget1, hdicon, separator,
-        mailwidget, mailicon, separator,
+        --mailwidget, mailicon, separator,
         uptimewidget, uptimeicon, separator,
         netupwidget, netupicon, netdownwidget, netdownicon, netwidget, neticon,
         layout = awful.widget.layout.horizontal.rightleft
@@ -216,8 +216,8 @@ globalkeys = awful.util.table.join(
     awful.key({ appkey,           }, "w", function () awful.util.spawn("google-chrome") end),
     awful.key({ appkey,           }, "f", function () awful.util.spawn("pcmanfm") end),
     awful.key({ appkey,           }, "t", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey, "Control" }, "r", awesome.restart),
-    awful.key({ modkey, "Shift"   }, "q", awesome.quit),
+    --awful.key({ modkey, "Control" }, "r", awesome.restart),
+    --awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
@@ -231,7 +231,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
+    awful.key({ appkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
 
     awful.key({ modkey }, "x",
               function ()
@@ -249,7 +249,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
-    awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
+    --awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
     awful.key({ modkey,           }, "n",
         function (c)
@@ -343,12 +343,14 @@ client.add_signal("manage", function (c, startup)
     -- awful.titlebar.add(c, { modkey = modkey })
 
     -- Enable sloppy focus
+    --[[
     c:add_signal("mouse::enter", function(c)
         if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
             and awful.client.focus.filter(c) then
             client.focus = c
         end
     end)
+    --]]
 
     if not startup then
         -- Set the windows at the slave,
