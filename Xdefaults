@@ -7,16 +7,19 @@ URxvt*urlLauncher:     google-chrome
 URxvt*cursorColor:     white
 URxvt*cursorBlink:     true
 URxvt*title:           rxvt-256color
-URxvt*shading:         20
+URxvt*shading:         10
 URxvt*transparent:     true
 URxvt*pastableTabs:    true
+URxvt*buffered:        true
 URxvt*jumpScroll:      true
 URxvt*secondaryScroll: true
 URxvt*visualBell:      false
 URxvt*termName:        xterm-256color
+URxvt*depth:           32
 
 ## change default colors
-URxvt*background: #000000
+!URxvt*background: #000000
+URxvt*background: rgba:0000/0000/0000/cccc
 URxvt*foreground: #BBBBBB
 URxvt*color0: #000000
 URxvt*color1: #A80000

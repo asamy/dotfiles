@@ -1,5 +1,7 @@
 #!/bin/bash
+export QT_PLUGIN_PATH=$HOME/.kde4/lib/kde4/plugins/:/usr/lib/kde4/plugins/
 setxkbmap -model abnt2 br
 xset b off
 /usr/lib/gnome-settings-daemon/gnome-settings-daemon &
+#xcompmgr -cCfF &
 awesome
