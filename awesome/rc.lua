@@ -40,12 +40,12 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 --beautiful.init("/usr/share/awesome/themes/default/theme.lua")
-beautiful.init("/home/bart/.config/awesome/themes/mine/theme.lua")
+beautiful.init("/home/niczkx/.config/awesome/themes/mine/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
 editor = "vim"
-browser = "firefox"
+browser = "chromium"
 filemanager = "dolphin"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -107,7 +107,6 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesom
                                     { "web", browser },
                                     { "filemanager", filemanager },
                                     { "skype", "skype" },
-                                    { "kdevelop", "kdevelop --ps" },
                                     { "sublime", "subl" },
                                     { "poweroff", "sudo poweroff" },
                                   }
@@ -125,40 +124,42 @@ spacer = wibox.widget.textbox(" ")
 colb = '<span color="white">'
 cole = '</span>'
 
+interface = "eth2"
+
 -- Net widget
-netwidget = wibox.widget.textbox("Net")
+netwidget = wibox.widget.textbox("Net " .. interface)
 netdownwidget = wibox.widget.textbox()
 netupwidget = wibox.widget.textbox()
-neticon = wibox.widget.imagebox("/home/bart/.config/awesome/icons/wifi_02.png")
-netdownicon = wibox.widget.imagebox("/home/bart/.config/awesome/icons/net_down_03.png")
-netupicon = wibox.widget.imagebox("/home/bart/.config/awesome/icons/net_up_03.png")
-vicious.register(netdownwidget, vicious.widgets.net, '${eth0 down_kb}KBs', 1)
-vicious.register(netupwidget, vicious.widgets.net, colb .. '${eth0 up_kb}KBs' .. cole, 1)
+neticon = wibox.widget.imagebox("/home/niczkx/.config/awesome/icons/wifi_02.png")
+netdownicon = wibox.widget.imagebox("/home/niczkx/.config/awesome/icons/net_down_03.png")
+netupicon = wibox.widget.imagebox("/home/niczkx/.config/awesome/icons/net_up_03.png")
+vicious.register(netdownwidget, vicious.widgets.net, '${' .. interface .. ' down_kb}KBs', 1)
+vicious.register(netupwidget, vicious.widgets.net, colb .. '${' .. interface .. ' up_kb}KBs' .. cole, 1)
 
 -- Uptime widget
-upicon = wibox.widget.imagebox("/home/bart/.config/awesome/icons/clock.png")
+upicon = wibox.widget.imagebox("/home/niczkx/.config/awesome/icons/clock.png")
 upwidget = wibox.widget.textbox()
-vicious.register(upwidget, vicious.widgets.uptime, "Uptime " .. colb .. "$2h" .. cole, 60)
+vicious.register(upwidget, vicious.widgets.uptime, "Uptime " .. colb .. "$1d $2h" .. cole, 60)
 
 -- Mem widget
-memicon = wibox.widget.imagebox("/home/bart/.config/awesome/icons/mem.png")
+memicon = wibox.widget.imagebox("/home/niczkx/.config/awesome/icons/mem.png")
 memwidget = wibox.widget.textbox()
 vicious.register(memwidget, vicious.widgets.mem, "Mem " .. colb .. "$1%" .. cole, 10)
 
 -- Updates widget
-updatesicon = wibox.widget.imagebox("/home/bart/.config/awesome/icons/arch.png")
+updatesicon = wibox.widget.imagebox("/home/niczkx/.config/awesome/icons/arch.png")
 updateswidget = wibox.widget.textbox()
 vicious.register(updateswidget, vicious.widgets.pacman, "Updates " .. colb .. "$1" .. cole, 15*60)
 
 -- FS widget
-fsicon = wibox.widget.imagebox("/home/bart/.config/awesome/icons/usb.png")
+fsicon = wibox.widget.imagebox("/home/niczkx/.config/awesome/icons/usb.png")
 fswidget1 = wibox.widget.textbox()
 vicious.register(fswidget1, vicious.widgets.fs, "Root " .. colb .. "${/ avail_gb}GB" .. cole, 30)
 fswidget2 = wibox.widget.textbox()
 vicious.register(fswidget2, vicious.widgets.fs, "Home " .. colb .. "${/home avail_gb}GB" .. cole, 30)
 
 -- CPU widget
-cpuicon = wibox.widget.imagebox("/home/bart/.config/awesome/icons/cpu.png")
+cpuicon = wibox.widget.imagebox("/home/niczkx/.config/awesome/icons/cpu.png")
 cpuwidget = wibox.widget.textbox()
 cpuinfwidget = wibox.widget.textbox()
 vicious.register(cpuwidget, vicious.widgets.cpu, "CPU " .. colb .. "$1%" .. cole)
@@ -458,8 +459,8 @@ awful.rules.rules = {
                      focus = function(c) return false end,
                      tags= tags[1],
                  } },
-    -- Set Firefox to always map on tags number 2 of screen 1.
-    -- { rule = { class = "Firefox" },
+    -- Set Chromium to always map on tags number 2 of screen 1.
+    -- { rule = { class = "chromium" },
     --   properties = { tag = tags[1][2] } },
 }
 -- }}}
@@ -535,7 +536,6 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
-
-local r = require('runonce')
-r.run("~/.config/awesome/termbg.sh")
+--local r = require('runonce')
+--r.run("~/.config/awesome/termbg.sh")
 -- }}}
