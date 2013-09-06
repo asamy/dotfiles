@@ -1,14 +1,18 @@
 Xcursor*theme:         PROTOZOA-grey
-URxvt*font:            xft:Terminus:size=8
-URxvt*boldFont:        xft:Terminus:size=8:style=bold
+URxvt*font:            xft:Monospace:size=8
+URxvt*boldFont:        xft:Monospace:size=8:style=bold
+URxvt*italicFont:      xft:Monospace:size=8
+URxvt*bolditalicFont:  xft:Monospace
+
 URxvt*scrollBar:       false
 URxvt*saveLines:       32767
-URxvt*urlLauncher:     google-chrome
+URxvt*urlLauncher:     chromium
 URxvt*cursorColor:     white
 URxvt*cursorBlink:     true
 URxvt*title:           rxvt-256color
-URxvt*shading:         10
+URxvt*shading:         110
 URxvt*transparent:     true
+URxvt*inheritPixmap:   true
 URxvt*pastableTabs:    true
 URxvt*buffered:        true
 URxvt*jumpScroll:      true
@@ -17,10 +21,14 @@ URxvt*visualBell:      false
 URxvt*termName:        xterm-256color
 URxvt*depth:           32
 
+Xft*dpi: 		99
+Xft*antialiase: 	true
+Xft*hinting: 		true
+
 ## change default colors
 !URxvt*background: #000000
-URxvt*background: rgba:0000/0000/0000/cccc
-URxvt*foreground: #BBBBBB
+URxvt*background: rgba:0000/0000/0000/dddd
+URxvt*foreground: #ffffff
 URxvt*color0: #000000
 URxvt*color1: #A80000
 URxvt*color2: #00A800
@@ -37,3 +45,24 @@ URxvt*color12: #5054F8
 URxvt*color13: #F854F8
 URxvt*color14: #50FCF8
 URxvt*color15: #F8FCF8
+
+# Tomorrow-Night-Bright
+#URxvt*foreground:   #eaeaea
+#URxvt*background:   #000000
+#URxvt*cursorColor:  #aeafad
+#URxvt*color0:       #000000
+#URxvt*color1:       #912226
+#URxvt*color2:       #778900
+#URxvt*color3:       #ae7b00
+#URxvt*color4:       #1d2594
+#URxvt*color5:       #682a9b
+#URxvt*color6:       #2b6651
+#URxvt*color7:       #929593
+#URxvt*color8:       #666666
+#URxvt*color9:       #cc6666
+#URxvt*color10:      #b5bd68
+#URxvt*color11:      #f0c674
+#URxvt*color12:      #81a2be
+#URxvt*color13:      #b294bb
+#URxvt*color14:      #8abeb7
+#URxvt*color15:      #ecebec

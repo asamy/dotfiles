@@ -1,4 +1,5 @@
-#exec dbus-launch gnome-session
-#exec dbus-launch startkde
-#exec dbus-launch xfce4-session
-exec dbus-launch startawesome
+/usr/bin/xscreensaver -no-splash &
+xset b off
+/usr/bin/start-pulseaudio-x11
+exec awesome -c /home/niczkx/.config/awesome/rc.lua
+
